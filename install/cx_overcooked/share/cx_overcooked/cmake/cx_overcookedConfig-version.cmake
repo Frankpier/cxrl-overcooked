@@ -1,1 +1,0 @@
-/home/frankpier/overcooked_ws/build/cx_overcooked/ament_cmake_core/cx_overcookedConfig-version.cmake

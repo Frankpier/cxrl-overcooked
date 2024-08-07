@@ -1,1 +1,0 @@
-/home/frankpier/overcooked_ws/src/cx_overcooked/overcooked-agent/goal-production.clp
