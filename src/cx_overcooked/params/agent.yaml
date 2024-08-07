@@ -1,0 +1,40 @@
+clips_manager:
+  ros__parameters:
+    # logs clips activities in a file at the location of ros logs
+    log_clips_to_file: true
+    # CLIPS events to log.
+    watch: [rules, facts]
+
+clips_executive:
+  ros__parameters:
+
+    # Sets the frequency, in which the clips agenda is being refresh
+    # inside the CX (in HZ)
+    refresh_rate: 1
+
+    # If set to true, will trigger the assertion of a (time (now)) fact in
+    # each loop. This can be used to trigger loop events in CLIPS.
+    assert_time_each_loop: true
+
+    unwatch_facts: ["time"]
+    unwatch_rules: ["time-retract"]
+
+    # Add core CLIPS code for basic CX functionality
+    init:
+     - name: clips-executive
+       files:
+        - core/plan.clp
+        - core/goal-rl.clp
+        - core/goal-tree.clp
+        - core/domain.clp
+        - core/skills.clp
+        - core/worldmodel.clp
+        - core/wm-domain-sync.clp
+        - core/reinforcementlearning.clp
+     - name: init
+       files: 
+        - overcooked-agent/point-mapping.clp
+        - overcooked-agent/init.clp
+        - overcooked-agent/goal-production.clp
+        - overcooked-agent/goal-expansion.clp
+        

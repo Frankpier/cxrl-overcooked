@@ -1,0 +1,1 @@
+/home/frankpier/overcooked_ws/src/cx_overcooked/overcooked-agent/point-mapping.clp

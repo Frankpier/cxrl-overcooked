@@ -1,0 +1,10 @@
+clips_features_manager:
+  ros__parameters:
+    clips_features_list: ["clips_pddl_parser", "skill_execution"]
+    clips_features:
+      clips_pddl_parser:
+        plugin: "cx::ClipsPddlParserFeature"
+      skill_execution:
+        plugin: "cx::SkillExecutionFeature"
+      reinforcement_learning:
+        plugin: "cx::ReinforcementLearningFeature"

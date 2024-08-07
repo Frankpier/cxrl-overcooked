@@ -1,0 +1,176 @@
+Invoking command in '/home/frankpier/overcooked_ws/build/cx_overcooked': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/frankpier/cxrl_ws/install/cx_reinforcement_learning DEBUGINFOD_URLS=https://debuginfod.fedoraproject.org/ OLDPWD=${OLDPWD}
+BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"
+}
+BASH_FUNC_module%%=() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then
+ case "$-" in
+ *v*x*)
+ __lmod_sh_dbg='vx'
+ ;;
+ *v*)
+ __lmod_sh_dbg='v'
+ ;;
+ *x*)
+ __lmod_sh_dbg='x'
+ ;;
+ esac;
+ fi;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ set +$__lmod_sh_dbg;
+ echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output" 1>&2;
+ fi;
+ eval "$($LMOD_CMD shell "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";
+ __lmod_my_status=$?;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ echo "Shell debugging restarted" 1>&2;
+ set -$__lmod_sh_dbg;
+ fi;
+ unset __lmod_sh_dbg;
+ return $__lmod_my_status
+}
+BASH_FUNC_frgs%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ killall gzserver;
+ $FAWKES_DIR/bin/./gazsim.bash -x start -r -k -a -l "$@"
+}
+BASH_FUNC_frcheck%%=() {  cd $FAWKES_DIR;
+ make check;
+ cd --
+}
+BASH_FUNC_frtest%%=() {  $FAWKES_DIR/tests.d/./cx-simtest.bash -k "$@"
+}
+BASH_FUNC_gitfulldiff%%=() {  git diff -U$(wc -l $1)
+}
+BASH_FUNC_frss%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ $FAWKES_DIR/bin/./gazsim.bash -r -k -o -m m-skill-sim-clips-exec "$@"
+} _=/usr/bin/env /home/frankpier/.local/bin/cmake --build /home/frankpier/overcooked_ws/build/cx_overcooked -- -j8 -l8
+Invoked command in '/home/frankpier/overcooked_ws/build/cx_overcooked' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/frankpier/cxrl_ws/install/cx_reinforcement_learning DEBUGINFOD_URLS=https://debuginfod.fedoraproject.org/ OLDPWD=${OLDPWD}
+BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"
+}
+BASH_FUNC_module%%=() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then
+ case "$-" in
+ *v*x*)
+ __lmod_sh_dbg='vx'
+ ;;
+ *v*)
+ __lmod_sh_dbg='v'
+ ;;
+ *x*)
+ __lmod_sh_dbg='x'
+ ;;
+ esac;
+ fi;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ set +$__lmod_sh_dbg;
+ echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output" 1>&2;
+ fi;
+ eval "$($LMOD_CMD shell "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";
+ __lmod_my_status=$?;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ echo "Shell debugging restarted" 1>&2;
+ set -$__lmod_sh_dbg;
+ fi;
+ unset __lmod_sh_dbg;
+ return $__lmod_my_status
+}
+BASH_FUNC_frgs%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ killall gzserver;
+ $FAWKES_DIR/bin/./gazsim.bash -x start -r -k -a -l "$@"
+}
+BASH_FUNC_frcheck%%=() {  cd $FAWKES_DIR;
+ make check;
+ cd --
+}
+BASH_FUNC_frtest%%=() {  $FAWKES_DIR/tests.d/./cx-simtest.bash -k "$@"
+}
+BASH_FUNC_gitfulldiff%%=() {  git diff -U$(wc -l $1)
+}
+BASH_FUNC_frss%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ $FAWKES_DIR/bin/./gazsim.bash -r -k -o -m m-skill-sim-clips-exec "$@"
+} _=/usr/bin/env /home/frankpier/.local/bin/cmake --build /home/frankpier/overcooked_ws/build/cx_overcooked -- -j8 -l8
+Invoking command in '/home/frankpier/overcooked_ws/build/cx_overcooked': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/frankpier/cxrl_ws/install/cx_reinforcement_learning DEBUGINFOD_URLS=https://debuginfod.fedoraproject.org/ OLDPWD=${OLDPWD}
+BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"
+}
+BASH_FUNC_module%%=() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then
+ case "$-" in
+ *v*x*)
+ __lmod_sh_dbg='vx'
+ ;;
+ *v*)
+ __lmod_sh_dbg='v'
+ ;;
+ *x*)
+ __lmod_sh_dbg='x'
+ ;;
+ esac;
+ fi;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ set +$__lmod_sh_dbg;
+ echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output" 1>&2;
+ fi;
+ eval "$($LMOD_CMD shell "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";
+ __lmod_my_status=$?;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ echo "Shell debugging restarted" 1>&2;
+ set -$__lmod_sh_dbg;
+ fi;
+ unset __lmod_sh_dbg;
+ return $__lmod_my_status
+}
+BASH_FUNC_frgs%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ killall gzserver;
+ $FAWKES_DIR/bin/./gazsim.bash -x start -r -k -a -l "$@"
+}
+BASH_FUNC_frcheck%%=() {  cd $FAWKES_DIR;
+ make check;
+ cd --
+}
+BASH_FUNC_frtest%%=() {  $FAWKES_DIR/tests.d/./cx-simtest.bash -k "$@"
+}
+BASH_FUNC_gitfulldiff%%=() {  git diff -U$(wc -l $1)
+}
+BASH_FUNC_frss%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ $FAWKES_DIR/bin/./gazsim.bash -r -k -o -m m-skill-sim-clips-exec "$@"
+} _=/usr/bin/env /home/frankpier/.local/bin/cmake --install /home/frankpier/overcooked_ws/build/cx_overcooked
+Invoked command in '/home/frankpier/overcooked_ws/build/cx_overcooked' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/frankpier/cxrl_ws/install/cx_reinforcement_learning DEBUGINFOD_URLS=https://debuginfod.fedoraproject.org/ OLDPWD=${OLDPWD}
+BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"
+}
+BASH_FUNC_module%%=() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then
+ case "$-" in
+ *v*x*)
+ __lmod_sh_dbg='vx'
+ ;;
+ *v*)
+ __lmod_sh_dbg='v'
+ ;;
+ *x*)
+ __lmod_sh_dbg='x'
+ ;;
+ esac;
+ fi;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ set +$__lmod_sh_dbg;
+ echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output" 1>&2;
+ fi;
+ eval "$($LMOD_CMD shell "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";
+ __lmod_my_status=$?;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ echo "Shell debugging restarted" 1>&2;
+ set -$__lmod_sh_dbg;
+ fi;
+ unset __lmod_sh_dbg;
+ return $__lmod_my_status
+}
+BASH_FUNC_frgs%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ killall gzserver;
+ $FAWKES_DIR/bin/./gazsim.bash -x start -r -k -a -l "$@"
+}
+BASH_FUNC_frcheck%%=() {  cd $FAWKES_DIR;
+ make check;
+ cd --
+}
+BASH_FUNC_frtest%%=() {  $FAWKES_DIR/tests.d/./cx-simtest.bash -k "$@"
+}
+BASH_FUNC_gitfulldiff%%=() {  git diff -U$(wc -l $1)
+}
+BASH_FUNC_frss%%=() {  $FAWKES_DIR/bin/./gazsim.bash -x kill;
+ $FAWKES_DIR/bin/./gazsim.bash -r -k -o -m m-skill-sim-clips-exec "$@"
+} _=/usr/bin/env /home/frankpier/.local/bin/cmake --install /home/frankpier/overcooked_ws/build/cx_overcooked

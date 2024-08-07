@@ -1,0 +1,4 @@
+source;share/cx_overcooked/local_setup.bash
+source;share/cx_overcooked/local_setup.dsv
+source;share/cx_overcooked/local_setup.sh
+source;share/cx_overcooked/local_setup.zsh

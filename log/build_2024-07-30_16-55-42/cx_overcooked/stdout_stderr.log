@@ -1,0 +1,22 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/overcooked-agent/domain.pddl
+-- Symlinking: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/overcooked-agent/init.clp
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/launch/agent.launch.py
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/params/agent.yaml
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/params/clips_features_manager.yaml
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/ament_index/resource_index/package_run_dependencies/cx_overcooked
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/ament_index/resource_index/parent_prefix_path/cx_overcooked
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/environment/path.sh
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/environment/path.dsv
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/local_setup.bash
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/local_setup.sh
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/local_setup.zsh
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/local_setup.dsv
+-- Symlinking: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/package.dsv
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/ament_index/resource_index/packages/cx_overcooked
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/cmake/cx_overcookedConfig.cmake
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/cmake/cx_overcookedConfig-version.cmake
+-- Up-to-date symlink: /home/frankpier/overcooked_ws/install/cx_overcooked/share/cx_overcooked/package.xml
