@@ -3,6 +3,7 @@
   (not (domain-loaded))
 =>
   (parse-pddl-domain (path-resolve "overcooked-agent/domain.pddl"))
+  (printout t "Domain loaded" crlf)
   (assert (domain-loaded))
 )
 
@@ -95,34 +96,36 @@
         (domain-fact (name plate-slot) (param-values plate1 THREE NONE))
         (domain-fact (name plate-slot) (param-values plate1 FOUR NONE))
         (domain-fact (name plate-slot) (param-values plate1 FIVE NONE))
+
         (domain-fact (name plate-slot) (param-values plate2 ONE NONE))
         (domain-fact (name plate-slot) (param-values plate2 TWO NONE))
         (domain-fact (name plate-slot) (param-values plate2 THREE NONE))
         (domain-fact (name plate-slot) (param-values plate2 FOUR NONE))
         (domain-fact (name plate-slot) (param-values plate2 FIVE NONE))
+
         (domain-fact (name plate-slot) (param-values plate3 ONE NONE))
         (domain-fact (name plate-slot) (param-values plate3 TWO NONE))
         (domain-fact (name plate-slot) (param-values plate3 THREE NONE))
         (domain-fact (name plate-slot) (param-values plate3 FOUR NONE))
         (domain-fact (name plate-slot) (param-values plate3 FIVE NONE))
 
-        (domain-fact (name order-slot) (param-values order ONE BUN))
-        (domain-fact (name order-slot) (param-values order TWO BEEF))
-        (domain-fact (name order-slot) (param-values order THREE NONE))
-        (domain-fact (name order-slot) (param-values order FOUR NONE))
-        (domain-fact (name order-slot) (param-values order FIVE NONE))
+        (domain-fact (name order-slot) (param-values 1 ONE BUN))
+        (domain-fact (name order-slot) (param-values 1 TWO BEEF))
+        (domain-fact (name order-slot) (param-values 1 THREE NONE))
+        (domain-fact (name order-slot) (param-values 1 FOUR NONE))
+        (domain-fact (name order-slot) (param-values 1 FIVE NONE))
 
-        (domain-fact (name order-slot) (param-values order2 ONE BUN))
-        (domain-fact (name order-slot) (param-values order2 TWO BEEF))
-        (domain-fact (name order-slot) (param-values order2 THREE CHEESE))
-        (domain-fact (name order-slot) (param-values order2 FOUR NONE))
-        (domain-fact (name order-slot) (param-values order2 FIVE NONE))
+        (domain-fact (name order-slot) (param-values 2 ONE BUN))
+        (domain-fact (name order-slot) (param-values 2 TWO BEEF))
+        (domain-fact (name order-slot) (param-values 2 THREE CHEESE))
+        (domain-fact (name order-slot) (param-values 2 FOUR NONE))
+        (domain-fact (name order-slot) (param-values 2 FIVE NONE))
 
-        (domain-fact (name order-slot) (param-values order3 ONE BUN))
-        (domain-fact (name order-slot) (param-values order3 TWO LETTUCE))
-        (domain-fact (name order-slot) (param-values order3 THREE TOMATO))
-        (domain-fact (name order-slot) (param-values order3 FOUR BEEF))
-        (domain-fact (name order-slot) (param-values order3 FIVE CHEESE))
+        (domain-fact (name order-slot) (param-values 3 ONE BUN))
+        (domain-fact (name order-slot) (param-values 3 TWO LETTUCE))
+        (domain-fact (name order-slot) (param-values 3 THREE TOMATO))
+        (domain-fact (name order-slot) (param-values 3 FOUR BEEF))
+        (domain-fact (name order-slot) (param-values 3 FIVE CHEESE))
 
 
 
@@ -173,6 +176,7 @@
 	(domain-loaded)
 =>
 	(domain-load-local-facts )
+  (printout t "Initial domain-facts loaded" crlf)
 	(assert (domain-facts-loaded))
 )
 

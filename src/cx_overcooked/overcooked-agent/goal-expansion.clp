@@ -1,4 +1,4 @@
-(deffunction plan-assert-action (?name $?param-values)
+(deffunction plan-assert-action (?name ?robot $?param-values)
 " Assert an action with a unique id."
 	(bind ?id-sym (gensym*))
 	(bind ?id-str (sub-string 4 (length$ ?id-sym) (str-cat ?id-sym)))

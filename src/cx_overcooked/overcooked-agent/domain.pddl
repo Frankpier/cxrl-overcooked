@@ -47,7 +47,6 @@
       (plate-for-order ?o - order ?p - plate)
       (started-order ?o - order)
       (order-delivered ?o - order)
-      (plate-empty ?p - plate)
       (plate-slot ?p - plate ?sl - slot ?in - ingredient-typename)
       (order-slot ?o - order ?sl - slot ?in - ingredient-typename)
 
@@ -247,7 +246,7 @@
                         (arms-free ?a)
                   )
     :effect (and  (holding ?a ?p)
-                  (not (arms-free))
+                  (not (arms-free ?a))
                   (not (plate-on-counter ?s))
                   (not (item-at-station ?s ?p))
             )

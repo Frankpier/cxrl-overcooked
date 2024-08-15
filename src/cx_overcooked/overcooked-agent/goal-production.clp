@@ -128,7 +128,7 @@
     (if (eq ?ingredient TOMATO)
     then
         (bind ?tomato (sym-cat tomato ?order))
-        (bind ?goal (goal-assert-put-chopped-tomato-on-plate ?order ?tomato ?plate))
+        (bind ?goal (goal-assert-put-chopped-tomato-on-plate ?order ?tomato ?board ?plate))
         (return ?goal)
     )
 )
@@ -156,4 +156,5 @@
     (goal-assert-slot ?order ?ingredient5 ?plate ?stove ?board)
 
     (goal-assert-deliver-plate ?order ?plate ?delivery)
+    (printout t "Asserted goals for order " ?order crlf)
 )
