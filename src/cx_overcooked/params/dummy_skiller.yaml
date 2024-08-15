@@ -1,0 +1,31 @@
+robot1_skill_node:
+  ros__parameters:
+    exec_times:
+      move-to:
+        time: 5.0
+      get-unprocessed-ingredient-from-storage:
+        time: 1.0
+      get-processed-ingredient-from-storage:
+        time: 1.0
+      put-vegetable-on-chopping-board:
+        time: 1.0
+      chop-vegetable:
+        time: 7.0
+      take-vegetable-from-chopping-board:
+        time: 1.0
+      put-beef-on-stove:
+        time: 1.0
+      stove-cook-beef:
+        time: 10.0
+      take-beef-from-stove:
+        time: 1.0
+      get-plate-from-sink:
+        time: 1.0
+      put-plate-on-counter:
+        time: 1.0
+      pick-up-plate-from-counter:
+        time: 1.0
+      put-ingredient-on-plate:
+        time: 1.0
+      deliver-plate:
+        time: 1.0

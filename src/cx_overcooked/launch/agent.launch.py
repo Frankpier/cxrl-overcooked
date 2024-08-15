@@ -10,6 +10,8 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     cx_overcooked_dir = get_package_share_directory('cx_overcooked')
+    
+    dummy_skiller_file = LaunchConfiguration('dummy_skiller_file')
 
     clips_manager_params_file = LaunchConfiguration(
         'clips_manager_params_file')
@@ -36,6 +38,11 @@ def generate_launch_description():
             'params',
             'clips_features_manager.yaml'),
         description='Path to the file containing clips_features_manager params')
+    declare_dummy_skiller_file = DeclareLaunchArgument(
+        'dummy_skiller_file',
+        default_value=os.path.join(
+            cx_overcooked_dir, 'params', 'dummy_skiller.yaml'),
+        description='Path to the file containing dummy skiller params')
 
     cx_node = Node(
         package='cx_bringup',
@@ -54,6 +61,15 @@ def generate_launch_description():
         ]
     )
 
+    robot1_dummy_skill_node = Node(
+        package='cx_example_skill_nodes',
+        executable='dummy_skill_node',
+        name='robot1_skill_node',
+        output='screen',
+        emulate_tty=True,
+        parameters=[{"robot_id": "robot1"}, dummy_skiller_file]
+    )
+
     cx_lifecycle_manager = Node(
         package='cx_lifecycle_nodes_manager',
         executable='lifecycle_manager_node',
@@ -69,7 +85,8 @@ def generate_launch_description():
     ld.add_action(declare_clips_manager_params_file)
     ld.add_action(declare_clips_executive_params_file)
     ld.add_action(declare_clips_features_manager_params_file)
-
+    ld.add_action(declare_dummy_skiller_file)
+    ld.add_action(robot1_dummy_skill_node)
     ld.add_action(cx_node)
     ld.add_action(cx_lifecycle_manager)
 

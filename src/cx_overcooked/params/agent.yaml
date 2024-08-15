@@ -21,20 +21,68 @@ clips_executive:
 
     # Add core CLIPS code for basic CX functionality
     init:
-     - name: clips-executive
-       files:
-        - core/plan.clp
-        - core/goal-rl.clp
-        - core/goal-tree.clp
-        - core/domain.clp
-        - core/skills.clp
-        - core/worldmodel.clp
-        - core/wm-domain-sync.clp
-        - core/reinforcementlearning.clp
-     - name: init
-       files: 
-        - overcooked-agent/point-mapping.clp
-        - overcooked-agent/init.clp
-        - overcooked-agent/goal-production.clp
-        - overcooked-agent/goal-expansion.clp
+      - name: clips-executive
+        files:
+          - core/plan.clp
+          - core/goal-rl.clp
+          - core/goal-tree.clp
+          - core/domain.clp
+          - core/skills.clp
+          - core/worldmodel.clp
+          - core/wm-domain-sync.clp
+          - core/reinforcementlearning.clp
+      - name: init
+        file: overcooked-agent/init.clp
+      - name: point-mapping
+        file: overcooked-agent/point-mapping.clp
+      - name: goal-production
+        file: overcooked-agent/goal-production.clp
+      - name: goal-expansion
+        file: overcooked-agent/goal-expansion.clp
+      - name: goal-executability
+        file: overcooked-agent/goal-executability.clp
+    
+    action_mapping:
+      move-to:
+        mapped_to: move-to
+        executer: dummy_skiller
+      get-unprocessed-ingredient-from-storage:
+        mapped_to: get-unprocessed-ingredient-from-storage
+        executer: dummy_skiller
+      get-processed-ingredient-from-storage:
+        mapped_to: get-processed-ingredient-from-storage
+        executer: dummy_skiller
+      put-vegetable-on-chopping-board:
+        mapped_to: put-vegetable-on-chopping-board
+        executer: dummy_skiller
+      chop-vegetable:
+        mapped_to: chop-vegetable
+        executer: dummy_skiller
+      take-vegetable-from-chopping-board:
+        mapped_to: take-vegetable-from-chopping-board
+        executer: dummy_skiller
+      put-beef-on-stove:
+        mapped_to: put-beef-on-stove
+        executer: dummy_skiller
+      stove-cook-beef:
+        mapped_to: stove-cook-beef
+        executer: dummy_skiller
+      take-beef-from-stove:
+        mapped_to: take-beef-from-stove
+        executer: dummy_skiller
+      get-plate-from-sink:
+        mapped_to: get-plate-from-sink
+        executer: dummy_skiller
+      put-plate-on-counter:
+        mapped_to: put-plate-on-counter
+        executer: dummy_skiller
+      pick-up-plate-from-counter:
+        mapped_to: pick-up-plate-from-counter
+        executer: dummy_skiller
+      put-ingredient-on-plate:
+        mapped_to: put-ingredient-on-plate
+        executer: dummy_skiller
+      deliver-plate:
+        mapped_to: deliver-plate
+        executer: dummy_skiller
         
