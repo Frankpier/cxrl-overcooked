@@ -132,7 +132,7 @@
 	)
 	(assert 
 		;domain-objects
-        (domain-object (name robot1) (type agent))
+        (domain-object (name robot1) (type robot))
         (domain-object (name bun1) (type ingredient))
         (domain-object (name bun2) (type ingredient))
         (domain-object (name bun3) (type ingredient))
