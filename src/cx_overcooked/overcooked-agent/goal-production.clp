@@ -121,11 +121,11 @@
 )
 
 (defrule goal-assert-order
-    (wm-fact (key domain fact order-slot args? o ?order sl ONE in ?ingredient1))
-    (wm-fact (key domain fact order-slot args? o ?order sl TWO in ?ingredient2))
-    (wm-fact (key domain fact order-slot args? o ?order sl THREE in ?ingredient3))
-    (wm-fact (key domain fact order-slot args? o ?order sl FOUR in ?ingredient4))
-    (wm-fact (key domain fact order-slot args? o ?order sl FIVE in ?ingredient5))
+    (domain-fact (name order-slot) (param-values ?order ONE ?ingredient1))
+    (domain-fact (name order-slot) (param-values ?order TWO ?ingredient2))
+    (domain-fact (name order-slot) (param-values ?order THREE ?ingredient3))
+    (domain-fact (name order-slot) (param-values ?order FOUR ?ingredient4))
+    (domain-fact (name order-slot) (param-values ?order FIVE ?ingredient5))
 
     (not (goal (params order ?order)))
     =>
