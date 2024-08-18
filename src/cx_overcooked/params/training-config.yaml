@@ -1,0 +1,31 @@
+cxrl_training/overcooked_training_node:
+  ros__parameters:
+    package_dir: "cxrl_ws/src/cx_reinforcement_learning/cx_reinforcement_learning"
+
+    env:
+      id: "overcooked_env"
+      entrypoint: "overcooked_rl.overcooked_env:OvercookedEnv"
+      max_episode_steps: 1000
+
+    agent_name: "TestAgent1"
+    retraining: false
+
+    model:
+      learning_rate: 0.0003
+      gamma: 0.99
+      gae_lambda: 0.95
+      ent_coef: 0.0
+      vf_coef: 0.5
+      max_grad_norm: 0.5
+      batch_size: 64
+      n_steps: 20
+      seed: 42
+      verbose: 1
+      n_robots: 1
+      time_based: false
+      n_time: 300
+      deadzone: 5
+      wait_for_all_robots: false
+
+    timesteps: 100000000
+    
