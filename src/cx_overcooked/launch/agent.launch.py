@@ -79,6 +79,18 @@ def generate_launch_description():
         parameters=[{"node_names_to_manage": lc_nodes}]
     )
 
+    config = os.path.join(cx_overcooked_dir, 'params', 'training-config.yaml')
+
+    cxrl_training_node = Node(
+        package='cx_reinforcement_learning',
+        executable='cxrl_training',
+        namespace='cxrl_training',
+        name='overcooked_training_node',
+        output='screen',
+        emulate_tty=True,
+        parameters= [config]
+    )
+
     # The lauchdescription to populate with defined CMDS
     ld = LaunchDescription()
 
@@ -89,5 +101,6 @@ def generate_launch_description():
     ld.add_action(robot1_dummy_skill_node)
     ld.add_action(cx_node)
     ld.add_action(cx_lifecycle_manager)
+    ld.add_action(cxrl_training_node)
 
     return ld
