@@ -121,6 +121,7 @@
 )
 
 (defrule goal-assert-order
+    (declare (salience ?*SALIENCE-HIGH*))
     (domain-fact (name order-slot) (param-values ?order ONE ?ingredient1))
     (domain-fact (name order-slot) (param-values ?order TWO ?ingredient2))
     (domain-fact (name order-slot) (param-values ?order THREE ?ingredient3))
