@@ -2,12 +2,12 @@
 " Assert an action with a unique id."
 	(bind ?id-sym (gensym*))
 	(bind ?id-str (sub-string 4 (length$ ?id-sym) (str-cat ?id-sym)))
-	(assert (plan-action (id (string-to-field ?id-str)) (action-name ?name) (robot ?robot) (param-values $?param-values)))
+	(assert (plan-action (id (string-to-field ?id-str)) (action-name ?name) (robot (str-cat ?robot)) (param-values $?param-values)))
 )
 
 (deffunction plan-assert-sequential (?plan-name ?goal-id $?action-tuples)
 	(bind ?plan-id (sym-cat ?plan-name (gensym*)))
-	(assert (plan (id ?plan-id) (goal-id ?goal-id)))
+	(assert (plan (id ?plan-id) (goal-id ?goal-id) (type SEQUENTIAL)))
 	(bind ?actions (create$))
 	; action tuples might contain FALSE some cases, filter them out
 	(foreach ?pa $?action-tuples
@@ -215,10 +215,23 @@
 
     =>
     (plan-assert-sequential (sym-cat DELIVER-PLATE-PLAN- (gensym*)) ?goal-id
-        (plan-assert-action move-to ?robot ?robot ?pos-start ?counter)
-        (plan-assert-action pick-up-plate-from-counter ?robot ?robot ?counter ?plate)
-        (plan-assert-action move-to ?robot ?robot ?counter ?delivery)
-        (plan-assert-action deliver-plate ?robot ?robot ?delivery ?plate ?order ?i1 ?i2 ?i3 ?i4 ?i5)
+        (plan-assert-action moveto ?robot ?robot ?pos-start ?counter)
+        (plan-assert-action pickupplatefromcounter ?robot ?robot ?counter ?plate)
+        (plan-assert-action moveto ?robot ?robot ?counter ?delivery)
+        (plan-assert-action deliverplate ?robot ?robot ?delivery ?plate ?order ?i1 ?i2 ?i3 ?i4 ?i5)
     )
     (modify ?g (mode EXPANDED))
+)
+
+(defrule goal-reasoner-commit
+	?g <- (goal (id ?goal-id) (mode EXPANDED))
+    (plan (id ?plan-id) (goal-id ?goal-id))
+	=>
+	(modify ?g (mode COMMITTED) (committed-to ?plan-id))
+)
+
+(defrule goal-reasoner-dispatch
+	?g <- (goal (mode COMMITTED))
+	=>
+	(modify ?g (mode DISPATCHED))
 )

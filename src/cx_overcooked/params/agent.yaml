@@ -28,9 +28,10 @@ clips_executive:
           - core/goal-tree.clp
           - core/domain.clp
           - core/skills.clp
-          - core/worldmodel.clp
-          - core/wm-domain-sync.clp
+          - core/skills-actions.clp
+          - core/action-selection/sequential.clp
           - core/reinforcementlearning.clp
+          - core/reset-game.clp
       - name: init
         file: overcooked-agent/init.clp
       - name: point-mapping
