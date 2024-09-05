@@ -18,7 +18,7 @@ cxrl_training/overcooked_training_node:
       vf_coef: 0.5
       max_grad_norm: 0.5
       batch_size: 64
-      n_steps: 20
+      n_steps: 5
       seed: 42
       verbose: 1
       n_robots: 1
