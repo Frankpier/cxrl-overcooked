@@ -53,7 +53,7 @@
       (order-slot ?o - order ?sl - slot ?in - ingredient-typename)
   ) 
 
-  (:action move-to
+  (:action moveto
     :parameters (?r - robot ?from - station ?to - station)
     :precondition (and  (at ?r ?from)
                         (station-blocked ?from)
@@ -66,7 +66,7 @@
             )
   )
 
-  (:action get-unprocessed-ingredient-from-storage
+  (:action getunprocessedingredientfromstorage
     :parameters (?r - robot ?s - station ?i - ingredient)
     :precondition (and  (station-type ?s STORAGE)
                         (at ?r ?s)
@@ -84,7 +84,7 @@
             )
   )
 
-  (:action get-processed-ingredient-from-storage
+  (:action getprocessedingredientfromstorage
     :parameters (?r - robot ?s - station ?i - ingredient)
     :precondition (and  (station-type ?s STORAGE)
                         (at ?r ?s)
@@ -101,7 +101,7 @@
             )
   )
 
-  (:action put-vegetable-on-chopping-board
+  (:action putvegetableonchoppingboard
     :parameters (?r - robot ?s - station ?i - ingredient)
     :precondition (and  (at ?r ?s)
                         (holding ?r ?i)
@@ -120,7 +120,7 @@
             )
   )
 
-  (:action chop-vegetable
+  (:action chopvegetable
     :parameters (?r - robot ?s - station ?i - ingredient)
     :precondition (and  (at ?r ?s)
                         (arms-free ?r)
@@ -138,7 +138,7 @@
             )
   )
 
-  (:action take-vegetable-from-chopping-board
+  (:action takevegetablefromchoppingboard
     :parameters (?r - robot ?s - station ?i - ingredient)
     :precondition (and  (at ?r ?s)
                         (arms-free ?r)
@@ -158,7 +158,7 @@
             )
   )
 
-  (:action put-beef-on-stove
+  (:action putbeefonstove
     :parameters (?r - robot ?s - station ?i - ingredient)
     :precondition (and  (at ?r ?s)
                         (station-type ?s STOVE)
@@ -175,7 +175,7 @@
             )
   )
 
-  (:action stove-cook-beef
+  (:action stovecookbeef
     :parameters (?s - station ?i - ingredient)
     :precondition (and  (station-type ?s STOVE)
                         (ingredient-type ?i BEEF)
@@ -189,7 +189,7 @@
             )
   )
 
-  (:action take-beef-from-stove
+  (:action takebeeffromstove
     :parameters (?r - robot ?s - station ?i - ingredient)
     :precondition (and  (at ?r ?s)
                         (arms-free ?r)
@@ -207,7 +207,7 @@
             )
   )
   
-  (:action get-plate-from-sink
+  (:action getplatefromsink
     :parameters (?r - robot ?s - station ?p - plate ?o - order)
     :precondition (and  (station-type ?s SINK)
                         (at ?r ?s)
@@ -224,7 +224,7 @@
             )
   )
 
-  (:action put-plate-on-counter
+  (:action putplateoncounter
     :parameters (?r - robot ?s - station ?p - plate)
     :precondition (and  (at ?r ?s)
                         (station-type ?s COUNTER)
@@ -238,7 +238,7 @@
             )
   )
 
-  (:action pick-up-plate-from-counter
+  (:action pickupplatefromcounter
     :parameters (?r - robot ?s - station ?p - plate)
     :precondition (and  (at ?r ?s)
                         (station-type ?s COUNTER)
@@ -253,7 +253,7 @@
             )
   )
 
-  (:action put-ingredient-on-plate
+  (:action putingredientonplate
     :parameters (?r - robot ?s - station ?i - ingredient ?in - ingredient-typename ?p - plate ?sl - slot)
     :precondition (and  (at ?r ?s)
                         (station-type ?s COUNTER)
@@ -272,7 +272,7 @@
             )
   )
 
-  (:action deliver-plate
+  (:action deliverplate
     :parameters (?r - robot ?s - station ?p - plate ?o - order ?i1 - ingredient-typename ?i2 - ingredient-typename
                   ?i3 - ingredient-typename ?i4 - ingredient-typename ?i5 - ingredient-typename
                 )

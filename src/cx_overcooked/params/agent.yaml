@@ -43,46 +43,46 @@ clips_executive:
         file: overcooked-agent/goal-executability.clp
     
     action_mapping:
-      move-to:
-        mapped_to: move-to
+      moveto:
+        mapped_to: moveto
         executor: dummy_skiller
-      get-unprocessed-ingredient-from-storage:
-        mapped_to: get-unprocessed-ingredient-from-storage
+      getunprocessedingredientfromstorage:
+        mapped_to: getunprocessedingredientfromstorage
         executor: dummy_skiller
-      get-processed-ingredient-from-storage:
-        mapped_to: get-processed-ingredient-from-storage
+      getprocessedingredientfromstorage:
+        mapped_to: getprocessedingredientfromstorage
         executor: dummy_skiller
-      put-vegetable-on-chopping-board:
-        mapped_to: put-vegetable-on-chopping-board
+      putvegetableonchoppingboard:
+        mapped_to: putvegetableonchoppingboard
         executor: dummy_skiller
-      chop-vegetable:
-        mapped_to: chop-vegetable
+      chopvegetable:
+        mapped_to: chopvegetable
         executor: dummy_skiller
-      take-vegetable-from-chopping-board:
-        mapped_to: take-vegetable-from-chopping-board
+      takevegetablefromchoppingboard:
+        mapped_to: takevegetablefromchoppingboard
         executor: dummy_skiller
-      put-beef-on-stove:
-        mapped_to: put-beef-on-stove
+      putbeefonstove:
+        mapped_to: putbeefonstove
         executor: dummy_skiller
-      stove-cook-beef:
-        mapped_to: stove-cook-beef
+      stovecookbeef:
+        mapped_to: stovecookbeef
         executor: dummy_skiller
-      take-beef-from-stove:
-        mapped_to: take-beef-from-stove
+      takebeeffromstove:
+        mapped_to: takebeeffromstove
         executor: dummy_skiller
-      get-plate-from-sink:
-        mapped_to: get-plate-from-sink
+      getplatefromsink:
+        mapped_to: getplatefromsink
         executor: dummy_skiller
-      put-plate-on-counter:
-        mapped_to: put-plate-on-counter
+      putplateoncounter:
+        mapped_to: putplateoncounter
         executor: dummy_skiller
-      pick-up-plate-from-counter:
-        mapped_to: pick-up-plate-from-counter
+      pickupplatefromcounter:
+        mapped_to: pickupplatefromcounter
         executor: dummy_skiller
-      put-ingredient-on-plate:
-        mapped_to: put-ingredient-on-plate
+      putingredientonplate:
+        mapped_to: putingredientonplate
         executor: dummy_skiller
-      deliver-plate:
-        mapped_to: deliver-plate
+      deliverplate:
+        mapped_to: deliverplate
         executor: dummy_skiller
         
