@@ -9,6 +9,7 @@ cxrl_training/overcooked_training_node:
 
     agent_name: "TestAgent1"
     retraining: false
+    max_episodes: 2
 
     model:
       learning_rate: 0.0003
