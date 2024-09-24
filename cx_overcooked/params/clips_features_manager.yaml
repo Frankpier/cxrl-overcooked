@@ -8,7 +8,7 @@ clips_features_manager:
         plugin: "cx::SkillExecutionFeature"
       reinforcement_learning:
         plugin: "cx::ReinforcementLearningFeature"
-        feature_parameters: ["reset_wait_time", "reset_max_time", "step_wait_time", "step_max_time", "speedup", "number_robots", "domain_based_reset"]
+        feature_parameters: ["reset_wait_time", "reset_max_time", "step_wait_time", "step_max_time", "speedup", "number_robots", "failure_reward"]
         reset_wait_time:
           value: 24.0
           type: "double"
@@ -27,6 +27,6 @@ clips_features_manager:
         number_robots:
           value: 1
           type: "integer"
-        domain_based_reset:
-          value: false
-          type: "bool"
+        failure_reward:
+          value: -100
+          type: "integer"

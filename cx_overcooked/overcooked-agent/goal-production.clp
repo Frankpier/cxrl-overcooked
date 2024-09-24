@@ -79,13 +79,26 @@
     (return ?goal)
 )
 
-(deffunction goal-assert-deliver-plate(?order)
+(deffunction goal-assert-deliver-plate (?order ?complexity)
+    (bind ?points 0)
+    (switch ?complexity
+        (case 1
+            then (bind ?points ?*POINTS-DELIVER-PLATE-I1*))
+        (case 2
+            then (bind ?points ?*POINTS-DELIVER-PLATE-I2*))
+        (case 3
+            then (bind ?points ?*POINTS-DELIVER-PLATE-I3*))
+        (case 4
+            then (bind ?points ?*POINTS-DELIVER-PLATE-I4*))
+        (case 5
+            then (bind ?points ?*POINTS-DELIVER-PLATE-I5*))
+    )
     (bind ?goal (assert (goal 
                             (class DELIVER-PLATE) 
                             (id (sym-cat DELIVER-PLATE- (gensym*)))
                             (sub-type SIMPLE) (is-executable FALSE)
                             (params order ?order)
-                            (assigned-to nil) (points ?*DELIVER-PLATE*)
+                            (assigned-to nil) (points ?points)
                         )
                 )
     )
@@ -127,7 +140,7 @@
     (domain-fact (name order-slot) (param-values ?order THREE ?ingredient3))
     (domain-fact (name order-slot) (param-values ?order FOUR ?ingredient4))
     (domain-fact (name order-slot) (param-values ?order FIVE ?ingredient5))
-
+    (not (domain-fact (name started-order) (param-values ?order)))
     (not (goal (params order ?order)))
     =>
     (goal-assert-move-plate-from-sink-to-counter ?order)
@@ -137,6 +150,28 @@
     (goal-assert-slot ?order ?ingredient4)
     (goal-assert-slot ?order ?ingredient5)
 
-    (goal-assert-deliver-plate ?order)
+    (bind ?complexity 0)
+    (if (neq ?ingredient1 NONE)
+    then
+        (bind ?complexity (+ ?complexity 1))
+    )
+    (if (neq ?ingredient2 NONE)
+    then
+        (bind ?complexity (+ ?complexity 1))
+    )
+    (if (neq ?ingredient3 NONE)
+    then
+        (bind ?complexity (+ ?complexity 1))
+    )
+    (if (neq ?ingredient4 NONE)
+    then
+        (bind ?complexity (+ ?complexity 1))
+    )
+    (if (neq ?ingredient5 NONE)
+    then
+        (bind ?complexity (+ ?complexity 1))
+    )
+
+    (goal-assert-deliver-plate ?order ?complexity)
     (printout t "Asserted goals for order " ?order crlf)
 )

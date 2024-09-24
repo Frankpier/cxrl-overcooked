@@ -2,7 +2,7 @@ robot1_skill_node:
   ros__parameters:
     exec_times:
       moveto:
-        time: 2.0
+        time: 1.0
       getunprocessedingredientfromstorage:
         time: 1.0
       getprocessedingredientfromstorage:
@@ -10,13 +10,13 @@ robot1_skill_node:
       putvegetableonchoppingboard:
         time: 1.0
       chopvegetable:
-        time: 3.0
+        time: 1.0
       takevegetablefromchoppingboard:
         time: 1.0
       putbeefonstove:
         time: 1.0
       stovecookbeef:
-        time: 3.0
+        time: 1.0
       takebeeffromstove:
         time: 1.0
       getplatefromsink:

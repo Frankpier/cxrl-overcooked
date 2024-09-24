@@ -6,12 +6,20 @@ class OvercookedEnv(CXRLGym):
         number_of_robots = 1
         step_wait_time = 5
         reset_wait_time = 5
+        self.reward_in_episode = 0
         super().__init__(number_of_robots, step_wait_time, reset_wait_time)
 
     def step(self, action):
-        return super().step(action)
+        with open("log-episode-reward.txt", 'a+') as f:
+            f.write(f"{self.action_dict[action]} \n")
+        state, reward, done, truncated, info = super().step(action)
+        self.reward_in_episode += reward
+        return state, reward, done, truncated, info
     
     def reset(self, seed: int = None, options: dict[str, any] = None):
+        with open("log-episode-reward.txt", 'a+') as f:
+            f.write(f"{self.reward_in_episode} \n")
+        self.reward_in_episode = 0
         return super().reset(seed=seed)
     
     def generate_action_space(self):

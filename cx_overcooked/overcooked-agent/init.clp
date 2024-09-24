@@ -184,11 +184,21 @@
   (save-facts reset-save)
 )
 
-(defrule domain-game-finished
+(defrule domain-game-finished-success
   (declare (salience ?*SALIENCE-FIRST*))
-  (domain-fact (name order-delivered) (param-values 1))
-  (domain-fact (name order-delivered) (param-values 2))
-  (domain-fact (name order-delivered) (param-values 3))
+  (domain-fact (name order-delivered) (param-values ?o1))
+  (domain-fact (name order-delivered) (param-values ?o2&~?o1))
+  (domain-fact (name order-delivered) (param-values ?o3&~?o1&~?o2))
   =>
-  (assert (episode-end))
+  (assert (rl-episode-end (success TRUE)))
+)
+
+(defrule domain-game-finished-failure
+  (declare (salience 499))
+  (goal (assigned-to ?robot&~nil))
+  (not (goal (assigned-to ?robot) (is-executable TRUE)))
+  (not (goal (mode ~FORMULATED&~FINISHED)))
+  (not (rl-episode-end (success ?success)))
+  =>
+  (assert (rl-episode-end (success FALSE)))
 )
