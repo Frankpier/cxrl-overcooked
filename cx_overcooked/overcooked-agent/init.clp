@@ -236,13 +236,3 @@
   =>
   (assert (rl-episode-end (success TRUE)))
 )
-
-(defrule domain-game-finished-failure
-  (declare (salience 499))
-  (goal (assigned-to ?robot&~nil))
-  (not (goal (assigned-to ?robot) (is-executable TRUE)))
-  (not (goal (mode ~FORMULATED&~FINISHED)))
-  (not (rl-episode-end (success ?success)))
-  =>
-  (assert (rl-episode-end (success FALSE)))
-)

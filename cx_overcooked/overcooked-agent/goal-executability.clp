@@ -1,5 +1,5 @@
 (defrule goal-executable-move-plate-from-sink-to-counter
-    (declare (salience ?*SALIENCE-HIGH*))
+    (declare (salience ?*SALIENCE-GOAL-EXECUTABLE-CHECK*))
     ?g <- (goal 
             (class MOVE-PLATE-FROM-SINK-TO-COUNTER) (id ?goal-id)
             (mode FORMULATED) (is-executable FALSE)
@@ -25,7 +25,7 @@
 )
 
 (defrule goal-executable-put-cooked-beef-on-plate
-    (declare (salience ?*SALIENCE-HIGH*))
+    (declare (salience ?*SALIENCE-GOAL-EXECUTABLE-CHECK*))
     ?g <- (goal 
             (class PUT-COOKED-BEEF-ON-PLATE) (id ?goal-id)
             (mode FORMULATED) (is-executable FALSE)
@@ -60,7 +60,7 @@
 )
 
 (defrule goal-executable-put-bun-on-plate
-    (declare (salience ?*SALIENCE-HIGH*))
+    (declare (salience ?*SALIENCE-GOAL-EXECUTABLE-CHECK*))
     ?g <- (goal 
             (class PUT-BUN-ON-PLATE) (id ?goal-id)
             (mode FORMULATED) (is-executable FALSE)
@@ -92,7 +92,7 @@
 )
 
 (defrule goal-executable-put-cheese-on-plate
-    (declare (salience ?*SALIENCE-HIGH*))
+    (declare (salience ?*SALIENCE-GOAL-EXECUTABLE-CHECK*))
     ?g <- (goal 
             (class PUT-CHEESE-ON-PLATE) (id ?goal-id)
             (mode FORMULATED) (is-executable FALSE)
@@ -123,7 +123,7 @@
 )
 
 (defrule goal-executable-put-chopped-lettuce-on-plate
-    (declare (salience ?*SALIENCE-HIGH*))
+    (declare (salience ?*SALIENCE-GOAL-EXECUTABLE-CHECK*))
     ?g <- (goal 
             (class PUT-CHOPPED-LETTUCE-ON-PLATE) (id ?goal-id)
             (mode FORMULATED) (is-executable FALSE)
@@ -159,7 +159,7 @@
 )
 
 (defrule goal-executable-put-chopped-tomato-on-plate
-    (declare (salience ?*SALIENCE-HIGH*))
+    (declare (salience ?*SALIENCE-GOAL-EXECUTABLE-CHECK*))
     ?g <- (goal 
             (class PUT-CHOPPED-TOMATO-ON-PLATE) (id ?goal-id)
             (mode FORMULATED) (is-executable FALSE)
@@ -194,7 +194,7 @@
 )
 
 (defrule goal-executable-deliver-plate
-    (declare (salience ?*SALIENCE-HIGH*))
+    (declare (salience ?*SALIENCE-GOAL-EXECUTABLE-CHECK*))
     ?g <- (goal 
             (class DELIVER-PLATE) (id ?goal-id)
             (mode FORMULATED) (is-executable FALSE)
