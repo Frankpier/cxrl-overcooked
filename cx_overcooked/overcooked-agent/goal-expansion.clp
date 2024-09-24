@@ -21,6 +21,7 @@
 )
 
 (defrule goal-expander-move-plate-from-sink-to-counter
+    (declare (salience ?*SALIENCE-HIGH*))
     ?g <-   (goal   (id ?goal-id)
                     (class MOVE-PLATE-FROM-SINK-TO-COUNTER)
                     (mode SELECTED)
@@ -43,6 +44,7 @@
 )
 
 (defrule goal-expander-put-cooked-beef-on-plate
+    (declare (salience ?*SALIENCE-HIGH*))
     ?g <-   (goal   (id ?goal-id)
                     (class PUT-COOKED-BEEF-ON-PLATE)
                     (mode SELECTED)
@@ -76,6 +78,7 @@
 )
 
 (defrule goal-expander-put-bun-on-plate
+    (declare (salience ?*SALIENCE-HIGH*))
     ?g <-   (goal   (id ?goal-id)
                     (class PUT-BUN-ON-PLATE)
                     (mode SELECTED)
@@ -103,6 +106,7 @@
 )
 
 (defrule goal-expander-put-cheese-on-plate
+    (declare (salience ?*SALIENCE-HIGH*))
     ?g <-   (goal   (id ?goal-id)
                     (class PUT-CHEESE-ON-PLATE)
                     (mode SELECTED)
@@ -129,6 +133,7 @@
 )
 
 (defrule goal-expander-put-chopped-lettuce-on-plate
+    (declare (salience ?*SALIENCE-HIGH*))
     ?g <-   (goal   (id ?goal-id)
                     (class PUT-CHOPPED-LETTUCE-ON-PLATE)
                     (mode SELECTED)
@@ -162,6 +167,7 @@
 )
 
 (defrule goal-expander-put-chopped-tomato-on-plate
+    (declare (salience ?*SALIENCE-HIGH*))
     ?g <-   (goal   (id ?goal-id)
                     (class PUT-CHOPPED-TOMATO-ON-PLATE)
                     (mode SELECTED)
@@ -195,6 +201,7 @@
 )
 
 (defrule goal-expander-deliver-plate
+    (declare (salience ?*SALIENCE-HIGH*))
     ?g <-   (goal   (id ?goal-id)
                     (class DELIVER-PLATE)
                     (mode SELECTED)
@@ -234,4 +241,17 @@
 	?g <- (goal (mode COMMITTED))
 	=>
 	(modify ?g (mode DISPATCHED))
+)
+
+(defrule goal-reasoner-completed
+	?g <- (goal (id ?goal-id) (mode FINISHED) (outcome COMPLETED))
+	=>
+	(printout t "Goal '" ?goal-id "' has been completed, cleaning up" crlf)
+	(delayed-do-for-all-facts ((?p plan)) (eq ?p:goal-id ?goal-id)
+		(delayed-do-for-all-facts ((?a plan-action)) (eq ?a:plan-id ?p:id)
+			(retract ?a)
+		)
+		(retract ?p)
+	)
+	(retract ?g)
 )
