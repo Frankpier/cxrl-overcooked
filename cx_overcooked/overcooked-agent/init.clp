@@ -236,3 +236,11 @@
   =>
   (assert (rl-episode-end (success TRUE)))
 )
+
+(defrule skill-action-final
+	?pa <- (plan-action (goal-id ?goal-id) (plan-id ?plan-id) (id ?id) (executor ?exec)
+	                    (action-name ?action-name) (state PENDING) (robot ?robot))
+	=>
+	(printout t "Execution of " ?action-name " completed successfully" crlf)
+	(modify ?pa (state EXECUTION-SUCCEEDED))
+)
