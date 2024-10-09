@@ -7,9 +7,9 @@ cxrl_training/overcooked_training_node:
       entrypoint: "overcooked_rl.overcooked_env:OvercookedEnv"
       max_episode_steps: 1000
 
-    agent_name: "TestAgent3"
+    agent_name: "TestAgent6"
     retraining: false
-    max_episodes: 50
+    max_episodes: 500
 
     model:
       learning_rate: 0.0003
