@@ -3,11 +3,8 @@ from cx_reinforcement_learning.cxrl_gym import CXRLGym
 
 class OvercookedEnv(CXRLGym):
     def __init__(self):
-        number_of_robots = 1
-        step_wait_time = 5
-        reset_wait_time = 5
         self.reward_in_episode = 0
-        super().__init__(number_of_robots, step_wait_time, reset_wait_time)
+        super().__init__()
 
     def step(self, action):
         with open("log-episode-reward.txt", 'a+') as f:
