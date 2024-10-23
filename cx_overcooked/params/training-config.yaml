@@ -1,17 +1,17 @@
-cxrl_training/overcooked_training_node:
+cxrl_training/overcooked_rl_node:
   ros__parameters:
     package_dir: "cxrl_ws/src/cx_reinforcement_learning/cx_reinforcement_learning"
 
-    env:
-      id: "overcooked_env"
-      entrypoint: "overcooked_rl.overcooked_env:OvercookedEnv"
-      max_episode_steps: 1000
-
-    agent_name: "TestAgent6"
-    retraining: true
-    max_episodes: 500
-    rl_mode: "EVALUATION"
+    agent_name: "TestAgent"
+    rl_mode: "TRAINING"
     number_of_robots: 1
+
+    training:
+      retraining: false
+      max_episodes: 500
+
+    env:
+      entrypoint: "overcooked_rl.overcooked_env:OvercookedEnv"
 
     model:
       learning_rate: 0.0003

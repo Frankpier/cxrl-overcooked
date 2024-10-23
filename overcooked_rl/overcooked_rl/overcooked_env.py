@@ -1,10 +1,11 @@
 from cx_reinforcement_learning.cxrl_gym import CXRLGym
+from rclpy.node import Node
 
 
 class OvercookedEnv(CXRLGym):
-    def __init__(self):
+    def __init__(self, node: Node, rl_mode: str, number_of_robots: int = 1):
         self.reward_in_episode = 0
-        super().__init__()
+        super().__init__(node, rl_mode, number_of_robots)
 
     def step(self, action):
         with open("log-episode-reward.txt", 'a+') as f:
@@ -20,7 +21,7 @@ class OvercookedEnv(CXRLGym):
         return super().reset(seed=seed)
     
     def generate_action_space(self):
-        self.get_logger().info("Generating action space...")
+        self.node.get_logger().info("Generating action space...")
         action_space =  ["MOVE-PLATE-FROM-SINK-TO-COUNTER#order#1",
                          "MOVE-PLATE-FROM-SINK-TO-COUNTER#order#2",
                          "MOVE-PLATE-FROM-SINK-TO-COUNTER#order#3",
