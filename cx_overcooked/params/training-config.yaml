@@ -1,4 +1,4 @@
-cxrl_training/overcooked_rl_node:
+cxrl_node/overcooked_rl_node:
   ros__parameters:
     package_dir: "cxrl_ws/src/cx_reinforcement_learning/cx_reinforcement_learning"
 
