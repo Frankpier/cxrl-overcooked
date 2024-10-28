@@ -3,9 +3,9 @@ from rclpy.node import Node
 
 
 class OvercookedEnv(CXRLGym):
-    def __init__(self, node: Node, rl_mode: str, number_of_robots: int = 1):
+    def __init__(self, node: Node):
         self.reward_in_episode = 0
-        super().__init__(node, rl_mode, number_of_robots)
+        super().__init__(node)
 
     def step(self, action):
         with open("log-episode-reward.txt", 'a+') as f:
