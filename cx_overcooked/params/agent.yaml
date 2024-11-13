@@ -1,87 +1,59 @@
 clips_manager:
   ros__parameters:
-    # logs clips activities in a file at the location of ros logs
-    log_clips_to_file: true
-    # CLIPS events to log.
-    watch: [rules, facts]
+    environments: ["main"]
+    main:
+        plugins: ["executive",
+                  "clips_pddl_parser",
+                  "ament_index",
+                  "config",
+                  "files",
+                  "cx_reinforcement_learning"]
+        log_clips_to_file: true
+        watch: ["facts", "rules"]
+        unwatch_facts: ["time"]
+        unwatch_rules: ["time-retract"]
 
-clips_executive:
-  ros__parameters:
-
-    # Sets the frequency, in which the clips agenda is being refresh
-    # inside the CX (in HZ)
-    refresh_rate: 1
-
-    # If set to true, will trigger the assertion of a (time (now)) fact in
-    # each loop. This can be used to trigger loop events in CLIPS.
-    assert_time_each_loop: true
-
-    unwatch_facts: ["time"]
-    unwatch_rules: ["time-retract"]
-
-    # Add core CLIPS code for basic CX functionality
-    init:
-      - name: clips-executive
-        files:
-          - core/plan.clp
-          - core/goal-rl.clp
-          - core/goal-tree.clp
-          - core/domain.clp
-          - core/action-selection/sequential.clp
-          - core/reinforcementlearning.clp
-          - core/reset-game.clp
-      - name: init
-        file: overcooked-agent/init.clp
-      - name: point-mapping
-        file: overcooked-agent/point-mapping.clp
-      - name: goal-production
-        file: overcooked-agent/goal-production.clp
-      - name: goal-expansion
-        file: overcooked-agent/goal-expansion.clp
-      - name: goal-executability
-        file: overcooked-agent/goal-executability.clp
+    ament_index:
+      plugin: "cx::AmentIndexPlugin"
     
-    action_mapping:
-      moveto-:
-        mapped_to: moveto-
-        executor: dummy_skiller
-      getunprocessedingredientfromstorage-:
-        mapped_to: getunprocessedingredientfromstorage-
-        executor: dummy_skiller
-      getprocessedingredientfromstorage-:
-        mapped_to: getprocessedingredientfromstorage-
-        executor: dummy_skiller
-      putvegetableonchoppingboard-:
-        mapped_to: putvegetableonchoppingboard-
-        executor: dummy_skiller
-      chopvegetable-:
-        mapped_to: chopvegetable-
-        executor: dummy_skiller
-      takevegetablefromchoppingboard-:
-        mapped_to: takevegetablefromchoppingboard-
-        executor: dummy_skiller
-      putbeefonstove-:
-        mapped_to: putbeefonstove-
-        executor: dummy_skiller
-      stovecookbeef-:
-        mapped_to: stovecookbeef-
-        executor: dummy_skiller
-      takebeeffromstove-:
-        mapped_to: takebeeffromstove-
-        executor: dummy_skiller
-      getplatefromsink-:
-        mapped_to: getplatefromsink-
-        executor: dummy_skiller
-      putplateoncounter-:
-        mapped_to: putplateoncounter-
-        executor: dummy_skiller
-      pickupplatefromcounter-:
-        mapped_to: pickupplatefromcounter-
-        executor: dummy_skiller
-      putingredientonplate-:
-        mapped_to: putingredientonplate-
-        executor: dummy_skiller
-      deliverplate-:
-        mapped_to: deliverplate-
-        executor: dummy_skiller
+    config:
+      plugin: "cx::ConfigPlugin"
+
+    clips_pddl_parser:
+      plugin: "cx::PddlParserPlugin"
+
+    executive:
+      plugin: "cx::ExecutivePlugin"
+      publish_on_refresh: false
+      assert_time: true
+      refresh_rate: 10
+    
+    cx_reinforcement_learning:
+      plugin: "cx::ReinforcementLearningPlugin"
+      speedup: 1.0
+      reset_wait_time: 2.0
+      reset_max_time: 60.0
+      step_wait_time: 1.0
+      step_max_time: 60.0
+      number_robots: 1
+
+    files:
+      plugin: "cx::FileLoadPlugin"
+      pkg_share_dirs: ["cx_overcooked", "cx_goal_reasoning"]
+      load: [
+        "clips/cx_goal_reasoning/plan.clp",
+        "clips/cx_goal_reasoning/goal-rl.clp",
+        "clips/cx_goal_reasoning/goal-tree.clp",
+        "clips/cx_goal_reasoning/pddl-action.clp",
+        "clips/cx_goal_reasoning/action-selection/sequential.clp",
+        "clips/cx_goal_reasoning/reinforcementlearning.clp",
+        "clips/cx_goal_reasoning/reset-game.clp",
+        "clips/overcooked-agent/init.clp",
+        "clips/overcooked-agent/point-mapping.clp",
+        "clips/overcooked-agent/goal-production.clp",
+        "clips/overcooked-agent/goal-expansion.clp",
+        "clips/overcooked-agent/goal-executability.clp"
+        ]
+
+
         

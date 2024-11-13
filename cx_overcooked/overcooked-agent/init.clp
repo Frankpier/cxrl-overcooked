@@ -1,8 +1,8 @@
 (defrule load-domain
-  (executive-init)
   (not (domain-loaded))
 =>
-  (parse-pddl-domain (path-resolve "overcooked-agent/domain.pddl"))
+  (bind ?share-dir (ament-index-get-package-share-directory "cx_overcooked"))
+  (parse-pddl-domain (str-cat ?share-dir "/clips/overcooked-agent/domain.pddl"))
   (printout t "Domain loaded" crlf)
   (assert (domain-loaded))
 )
@@ -44,6 +44,7 @@
         (domain-fact (name station-state) (param-values counter4 IDLE))
         (domain-fact (name station-state) (param-values counter5 IDLE))
 
+        (domain-fact (name station-blocked) (param-values START))
 
         (domain-fact (name ingredient-type) (param-values bun1 BUN))
         (domain-fact (name ingredient-type) (param-values bun2 BUN))

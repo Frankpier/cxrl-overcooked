@@ -3,7 +3,7 @@ cxrl_node/overcooked_rl_node:
     package_dir: "cxrl_ws/src/cx_reinforcement_learning/cx_reinforcement_learning"
 
     agent_name: "TestAgent6"
-    rl_mode: "EXECUTION"
+    rl_mode: "EVALUATION"
     number_of_robots: 1
 
     training:
