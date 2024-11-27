@@ -1,5 +1,6 @@
 from cx_reinforcement_learning.cxrl_gym import CXRLGym
 from rclpy.node import Node
+import rclpy
 
 
 class OvercookedEnv(CXRLGym):
@@ -63,4 +64,8 @@ class OvercookedEnv(CXRLGym):
     def render(self):
         pass
 
-    
+def main(args=None):
+    print("Hello World")
+
+if __name__ == '__main__':
+    main()
