@@ -14,6 +14,10 @@
         (domain-fact (name robot-waiting) (param-values robot1))
         (domain-fact (name at) (param-values robot1 START))
 
+        (domain-fact (name arms-free) (param-values robot2))
+        (domain-fact (name robot-waiting) (param-values robot2))
+        (domain-fact (name at) (param-values robot2 START))
+
         (domain-fact (name station-type) (param-values stove STOVE))
         (domain-fact (name station-type) (param-values sink SINK))
         (domain-fact (name station-type) (param-values delivery DELIVERY))
@@ -172,6 +176,7 @@
 	(assert 
 		;domain-objects
         (domain-object (name robot1) (type robot))
+        (domain-object (name robot2) (type robot))
         
         (domain-object (name bun1) (type ingredient))
         (domain-object (name bun2) (type ingredient))
