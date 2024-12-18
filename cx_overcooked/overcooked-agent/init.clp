@@ -231,7 +231,6 @@
 	(domain-load-local-facts )
   (printout t "Initial domain-facts loaded" crlf)
 	(assert (domain-facts-loaded))
-  (save-facts reset-save)
 )
 
 (defrule domain-game-finished-success

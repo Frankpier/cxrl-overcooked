@@ -6,8 +6,17 @@ clips_manager:
                   "clips_pddl_parser",
                   "ament_index",
                   "config",
-                  "files",
-                  "cx_reinforcement_learning"]
+                  "create_rl_env_state",
+                  "exec_goal_selection",
+                  "get_domain_objects",
+                  "get_domain_predicates",
+                  "get_goal_list",
+                  "get_goal_list_robot",
+                  "set_rl_mode",
+                  "get_free_robot",
+                  "goal_selection",
+                  "reset_cx",
+                  "files"]
         log_clips_to_file: true
         watch: ["facts", "rules"]
         unwatch_facts: ["time"]
@@ -28,18 +37,39 @@ clips_manager:
       assert_time: true
       refresh_rate: 10
     
-    cx_reinforcement_learning:
-      plugin: "cx::ReinforcementLearningPlugin"
-      speedup: 1.0
-      reset_wait_time: 2.0
-      reset_max_time: 60.0
-      step_wait_time: 1.0
-      step_max_time: 60.0
-      number_robots: 2
+    create_rl_env_state:
+      plugin: "cx::CXCxRlInterfacesCreateRLEnvStatePlugin"
+
+    exec_goal_selection:
+      plugin: "cx::CXCxRlInterfacesExecGoalSelectionPlugin"
+
+    get_domain_objects:
+      plugin: "cx::CXCxRlInterfacesGetDomainObjectsPlugin"
+    
+    get_domain_predicates:
+      plugin: "cx::CXCxRlInterfacesGetDomainPredicatesPlugin"
+
+    get_goal_list:
+      plugin: "cx::CXCxRlInterfacesGetGoalListPlugin"
+
+    get_goal_list_robot:
+      plugin: "cx::CXCxRlInterfacesGetGoalListRobotPlugin"
+
+    set_rl_mode:
+      plugin: "cx::CXCxRlInterfacesSetRLModePlugin"
+
+    get_free_robot:
+      plugin: "cx::CXCxRlInterfacesGetFreeRobotPlugin"
+
+    goal_selection:
+      plugin: "cx::CXCxRlInterfacesGoalSelectionPlugin"
+
+    reset_cx:
+      plugin: "cx::CXCxRlInterfacesResetCXPlugin"
 
     files:
       plugin: "cx::FileLoadPlugin"
-      pkg_share_dirs: ["cx_overcooked", "cx_goal_reasoning"]
+      pkg_share_dirs: ["cx_overcooked", "cx_goal_reasoning", "cx_reinforcement_learning_plugin"]
       load: [
         "clips/cx_goal_reasoning/plan.clp",
         "clips/cx_goal_reasoning/goal-rl.clp",
@@ -48,6 +78,17 @@ clips_manager:
         "clips/cx_goal_reasoning/action-selection/sequential.clp",
         "clips/cx_goal_reasoning/reinforcementlearning.clp",
         "clips/cx_goal_reasoning/reset-game.clp",
+        "clips/rl_plugin/rl-utils.clp",
+        "clips/rl_plugin/create-rl-env-state-srv.clp",
+        "clips/rl_plugin/exec-goal-selection-srv.clp",
+        "clips/rl_plugin/get-domain-objects-srv.clp",
+        "clips/rl_plugin/get-domain-predicates-srv.clp",
+        "clips/rl_plugin/get-goal-list-srv.clp",
+        "clips/rl_plugin/get-goal-list-robot-srv.clp",
+        "clips/rl_plugin/set-rl-mode-srv.clp",
+        "clips/rl_plugin/get-free-robot-action.clp",
+        "clips/rl_plugin/goal-selection-action.clp",
+        "clips/rl_plugin/reset-cx-action.clp",
         "clips/overcooked-agent/init.clp",
         "clips/overcooked-agent/point-mapping.clp",
         "clips/overcooked-agent/goal-production.clp",
