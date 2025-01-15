@@ -19,8 +19,7 @@ clips_manager:
                   "files"]
         log_clips_to_file: true
         watch: ["facts", "rules"]
-        unwatch_facts: ["time"]
-        unwatch_rules: ["time-retract"]
+        redirect_stdout_to_debug: true
 
     ament_index:
       plugin: "cx::AmentIndexPlugin"
@@ -80,7 +79,7 @@ clips_manager:
         "clips/cx_goal_reasoning/reset-game.clp",
         "clips/rl_plugin/rl-utils.clp",
         "clips/rl_plugin/create-rl-env-state-srv.clp",
-        "clips/rl_plugin/exec-goal-selection-srv.clp",
+        "clips/rl_plugin/exec-goal-selection-client.clp",
         "clips/rl_plugin/get-domain-objects-srv.clp",
         "clips/rl_plugin/get-domain-predicates-srv.clp",
         "clips/rl_plugin/get-goal-list-srv.clp",
