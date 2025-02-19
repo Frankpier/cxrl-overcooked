@@ -70,6 +70,7 @@ clips_manager:
       plugin: "cx::FileLoadPlugin"
       pkg_share_dirs: ["cx_overcooked", "cx_goal_reasoning", "cx_reinforcement_learning_plugin"]
       load: [
+        "clips/overcooked-agent/point-mapping.clp",
         "clips/cx_goal_reasoning/plan.clp",
         "clips/cx_goal_reasoning/goal-rl.clp",
         "clips/cx_goal_reasoning/goal-tree.clp",
@@ -89,7 +90,6 @@ clips_manager:
         "clips/rl_plugin/goal-selection-action.clp",
         "clips/rl_plugin/reset-cx-action.clp",
         "clips/overcooked-agent/init.clp",
-        "clips/overcooked-agent/point-mapping.clp",
         "clips/overcooked-agent/goal-production.clp",
         "clips/overcooked-agent/goal-expansion.clp",
         "clips/overcooked-agent/goal-executability.clp"

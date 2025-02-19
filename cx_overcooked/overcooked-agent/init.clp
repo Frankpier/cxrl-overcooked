@@ -233,6 +233,7 @@
 
 (defrule domain-game-finished-success
   (declare (salience ?*SALIENCE-FIRST*))
+  (not (rl-episode-end))
   (domain-fact (name order-delivered) (param-values ?o1))
   (domain-fact (name order-delivered) (param-values ?o2&~?o1))
   (domain-fact (name order-delivered) (param-values ?o3&~?o1&~?o2))
