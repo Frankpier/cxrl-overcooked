@@ -10,7 +10,7 @@ def parse_reward(filename):
     filepath = os.path.join("~", filename)
     with open(os.path.expanduser(filepath),"r") as file:
         for line in file:
-            if line.strip().isdigit():
+            if not line.strip()[:1].isalpha():
                 rewards.append(int(line.strip()))
     output = np.array(rewards)
     return output
@@ -21,7 +21,7 @@ def create_reward_graph(rewards):
     fit = np.poly1d(np.polyfit(x, y, 3))
     plt.plot(x, y, 'kx', x, fit(x), 'b--')
     plt.xlim(0, len(x))
-    plt.ylim(0, max(y)+25)
+    plt.ylim(min(y) - 0.1*abs(min(y)), max(y)+ 0.1*abs(max(y)))
     plt.show()
 
 
