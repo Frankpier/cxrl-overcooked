@@ -34,7 +34,6 @@
 
   (:predicates
       (at ?r - robot ?s - station)
-      (robot-waiting ?r - robot)
       (plate-at-station ?s - station ?p - plate)
       (ingredient-at-station ?s - station ?i - ingredient)
       (station-type ?s - station ?tn - station-typename)

@@ -11,11 +11,9 @@
 	(assert
 		;domain-facts
         (domain-fact (name arms-free) (param-values robot1))
-        (domain-fact (name robot-waiting) (param-values robot1))
         (domain-fact (name at) (param-values robot1 START))
 
         (domain-fact (name arms-free) (param-values robot2))
-        (domain-fact (name robot-waiting) (param-values robot2))
         (domain-fact (name at) (param-values robot2 START))
 
         (domain-fact (name station-type) (param-values stove STOVE))
